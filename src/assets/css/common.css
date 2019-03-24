@@ -1,0 +1,62 @@
+/* 下箭头 */
+.down-arrow {
+  display: inline-block;
+  position: relative;
+}
+
+.down-arrow::after {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: -.1em;
+  width: .5em;
+  height: .5em;
+  border-bottom: .01rem solid #fff;
+  border-left: .01rem solid #fff;
+  transform: rotateZ(-45deg)
+}
+
+/*------------flex布局-------------*/
+
+/* 上下左右居中对齐 */
+.df-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*------------float布局-------------*/
+/* 左浮动 */
+.fl {
+  float: left;
+}
+/* 右浮动 */
+.fr {
+  float: right;
+}
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0
+}
+/* 清除浮动 */
+.clearfix {
+  zoom: 1
+}
+
+/*------------文本溢出隐藏-------------*/
+/* 单行溢出隐藏 */
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 2行溢出隐藏 */
+.ellipsis2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
