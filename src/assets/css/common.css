@@ -24,6 +24,12 @@
   justify-content: center;
   align-items: center;
 }
+/* 左右两端对齐，上下居中 */
+.df-sb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 /*------------float布局-------------*/
 /* 左浮动 */
