@@ -14,17 +14,26 @@ export default new Router({
     {
       path: '/home',
       name: 'home',
-      component: _import_('Home')
+      component: _import_('Home'),
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/movie/:id',
       name: 'movie',
-      component: _import_('Detail')
+      component: _import_('Detail'),
+      meta: {
+        keepAlive: false
+      }
     },
     {
       path: '/film',
       name: 'film',
-      component: _import_('Film')
+      component: _import_('Film'),
+      meta: {
+        keepAlive: true
+      }
     }
   ]
 })

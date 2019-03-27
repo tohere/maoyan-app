@@ -23,19 +23,19 @@
         <div class="hallType" v-for="(item2, index2) in item.tag.hallType" :key="index2">
           {{ item2 }}
         </div>
-        <!-- <div class="hallType" v-if="!!item.tag.hallType">Dolby Cinema厅</div>
-        <div class="hallType" v-if="!!item.tag.hallType">IMAX厅</div>
-        <div class="hallType" v-if="!!item.tag.hallType">杜比全景声厅</div> -->
       </div>
     </li>
   </ul>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'FilmContent',
-  props: ['cinemas'],
   methods: {
     loadMore () {}
+  },
+  computed: {
+    ...mapGetters(['cinemas'])
   }
 }
 </script>
@@ -43,6 +43,7 @@ export default {
 li {
   padding: 0.15rem;
   border-bottom: 1px solid #eee;
+  font-size: .14rem;
 }
 .top {
   display: flex;

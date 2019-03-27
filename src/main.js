@@ -9,7 +9,12 @@ import store from './store'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.min.css'
 
+import { showLoading, hideLoading } from './components/Loading'
+
 Vue.config.productionTip = false
+
+Vue.prototype.$showLoading = showLoading
+Vue.prototype.$hideLoading = hideLoading
 
 Vue.use(Mint)
 Vue.use(VueAwesomeSwiper)

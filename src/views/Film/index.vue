@@ -18,7 +18,8 @@
       <FilmTab />
     </div>
     <div class="bot">
-      <FilmContent :cinemas='cinemas' />
+      <FilmContent v-show='cinemas.length > 0' />
+      <div class="no-film df-c" v-show='cinemas.length === 0'>暂无符合条件的影院</div>
     </div>
   </div>
 </template>
@@ -27,34 +28,27 @@ import { mapGetters } from 'vuex'
 import FilmTab from './FilmTab'
 import FilmContent from './FilmContent'
 import { getFilms } from '@/api/getData'
+import { setTime } from '../../utils/util'
 export default {
   name: 'Film',
   components: {
     FilmTab,
     FilmContent
   },
-  data () {
-    return {
-      cinemas: []
-    }
-  },
   computed: {
-    ...mapGetters(['userAddress'])
+    ...mapGetters(['userAddress', 'cinemas'])
   },
   created () {
     this.getFilmsData()
   },
   methods: {
+    /**
+     * 获取影院数据
+     */
     async getFilmsData () {
-      const date = new Date()
-      const y = date.getFullYear()
-      let m = date.getMonth()
-      let d = date.getDate()
-      m = m < 10 ? '0' + m : m
-      d = d < 10 ? '0' + d : d
-      const day = `${y}-${m}-${d}`
+      const day = setTime()
       const {data: {cinemas}} = await getFilms(day)
-      this.cinemas = cinemas
+      this.$store.dispatch('setCinemas', cinemas)
     }
   }
 }
@@ -102,5 +96,12 @@ export default {
       }
     }
   }
+}
+.no-film {
+  width: 100%;
+  height: 100%;
+  font-size: .20rem;
+  font-weight: bold;
+  color: #888;
 }
 </style>
