@@ -21,8 +21,6 @@
                     <p class="time ellipsis">{{ item.comingTitle.split(' ')[0] }}</p>
                   </div>
                 </swiper-slide>
-                <!-- 这是轮播的小圆点 -->
-                <div class="swiper-pagination" slot="pagination"></div>
               </swiper>
             </div>
           </div>

@@ -82,6 +82,5 @@ export const getFilmsByCon = (day, districtId, areaId, brandId, hallType, servic
   stationId:-1,
   item:'',
   updateShowDay,
-  reqId:1553613237246,
   cityId:1
 }})
