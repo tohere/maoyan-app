@@ -17,15 +17,17 @@
       </div>
       <FilmTab />
     </div>
-    <div class="bot">
+    <div class="bot sc-h">
       <FilmContent v-show='cinemas.length > 0' />
       <div class="no-film df-c" v-show='cinemas.length === 0'>暂无符合条件的影院</div>
     </div>
+    <tab-bar></tab-bar>
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
 import FilmTab from './FilmTab'
+import TabBar from '../../components/TabBar.vue'
 import FilmContent from './FilmContent'
 import { getFilms } from '@/api/getData'
 import { setTime } from '../../utils/util'
@@ -33,7 +35,8 @@ export default {
   name: 'Film',
   components: {
     FilmTab,
-    FilmContent
+    FilmContent,
+    TabBar
   },
   computed: {
     ...mapGetters(['userAddress', 'cinemas'])
@@ -62,6 +65,7 @@ export default {
   position: relative;
   .top {
     position: fixed;
+    // height: calc(100% - .5rem);
     width: 100%;
     background-color: #fff;
     z-index: 100;
@@ -69,8 +73,9 @@ export default {
   .bot {
     position: relative;
     width: 100%;
-    height: calc(100% - 1.35rem);
+    height: calc(100% - 1.85rem);
     top: 1.35rem;
+    overflow-y: auto;
   }
   .search {
     height: .44rem;

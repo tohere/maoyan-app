@@ -1,12 +1,9 @@
 <template>
   <div id="app">
-    <main class="sc-h">
-      <keep-alive>
-        <router-view v-if='$route.meta.keepAlive'/>
-      </keep-alive>
-        <router-view v-if='!$route.meta.keepAlive'/>
-    </main>
-    <tab-bar></tab-bar>
+    <keep-alive>
+      <router-view v-if='$route.meta.keepAlive'/>
+    </keep-alive>
+    <router-view v-if='!$route.meta.keepAlive'/>
   </div>
 </template>
 
@@ -52,17 +49,20 @@ html, body, #app {
   height: 100%;
   color: #333;
 }
+#app {
+  overflow: hidden;
+}
 .mint-header.is-fixed, .mint-header {
   height: .5rem;
   font-size: .18rem;
   background-color: #f03d37;
 }
-main {
+/*main {
   height: calc(100% - .5rem);
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
-}
+}*/
 .sc-h::-webkit-scrollbar {
   display: none;
 }

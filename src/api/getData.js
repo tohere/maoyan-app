@@ -84,3 +84,7 @@ export const getFilmsByCon = (day, districtId, areaId, brandId, hallType, servic
   updateShowDay,
   cityId:1
 }})
+
+// 根据影院id获取影院详情
+// @params {Number} cinemaId 影院id
+export const getFilmDetail = (cinemaId) => axios.get('/api/ajax/cinemaDetail?cinemaId=' + cinemaId)

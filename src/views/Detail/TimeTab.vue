@@ -12,9 +12,9 @@
   </div>
 </template>
 <script>
-import { setTime } from '@/utils/util'
+// import { setTime } from '@/utils/util'
 import { mapGetters } from 'vuex'
-import { getFilmsCon } from '@/api/getData'
+// import { getFilmsCon } from '@/api/getData'
 export default {
   name: 'TimeTab',
   props: ['showDays'],

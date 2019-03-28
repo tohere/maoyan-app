@@ -4,7 +4,7 @@
     <div class="top-tab">
       <div v-for='(item, index) in menuTabs' :key='index' :class='{ active: tabIndex === index }' @click='changeTab(index)'>{{ item }}</div>
     </div>
-    <div class="bot">
+    <div class="bot" v-if="menuData.subItems">
       <ul class="left fl ellipsis sc-h">
         <li class="ellipsis" :class='{active: oneIndex === index}' @click='changeLeftTab(index, item.id)' v-for='(item, index) in menuData.subItems' :key='item.id'>{{ item.name }}({{ item.count }})</li>
       </ul>

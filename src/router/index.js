@@ -34,6 +34,14 @@ export default new Router({
       meta: {
         keepAlive: true
       }
+    },
+    {
+      path: '/filmdetail',
+      name: 'filmDetail',
+      component: _import_('FilmDetail'),
+      meta: {
+        keepAlive: false
+      }
     }
   ]
 })

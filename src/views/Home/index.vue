@@ -8,18 +8,21 @@
     <keep-alive>
       <component class="video-list sc-h" :is='nowCom'></component>
     </keep-alive>
+    <tab-bar></tab-bar>
   </div>
 </template>
 <script>
 import Tabs from './tabs'
 import Now from './Now'
 import Soon from './Soon'
+import TabBar from '../../components/TabBar.vue'
 export default {
   name: 'Home',
   components: {
     Tabs,
     Now,
-    Soon
+    Soon,
+    TabBar
   },
   data () {
     return {

@@ -4,9 +4,9 @@
     v-infinite-scroll="loadMore"
     infinite-scroll-disabled="loading"
     infinite-scroll-distance="10"
-    class="film-content"
+    class="film-content sc-h"
   >
-    <li v-for="item in cinemas" :key="item.id">
+    <li v-for="item in cinemas" :key="item.id" @click="$router.push({name: 'filmDetail', query: {cinemaId: item.id}})">
       <div class="top ellipsis">
         <h3 class="ellipsis">{{ item.nm }}</h3>
         <span>{{ item.sellPrice }}元起</span>
@@ -32,7 +32,9 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'FilmContent',
   methods: {
-    loadMore () {}
+    loadMore () {
+      console.log('this')
+    }
   },
   computed: {
     ...mapGetters(['cinemas'])
@@ -40,6 +42,14 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+// .film-content {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   overflow-y: auto
+// }
 li {
   padding: 0.15rem;
   border-bottom: 1px solid #eee;

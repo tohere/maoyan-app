@@ -1,14 +1,16 @@
 <template>
   <!-- 电影详情页 -->
-  <div class="detail">
-    <mt-header :title="detailMovie.nm">
-      <mt-button icon="back" @click="$router.back()" slot="left"></mt-button>
-    </mt-header>
-    <Detail :detailMovie='detailMovie' />
-    <div class="content" :class='{ active: isFixed }'>
-      <div class="inner sc-h">
-        <TimeTab :showDays='showDays' @hideMask='goHide' @clickTab='clickTab'/>
-        <FilmTab ref='filmTab'/>
+  <div class="detail sc-h">
+    <div class="top">
+      <mt-header :title="detailMovie.nm">
+        <mt-button icon="back" @click="$router.back()" slot="left"></mt-button>
+      </mt-header>
+      <Detail :detailMovie='detailMovie' />
+      <div class="content" :class='{ active: isFixed }'>
+        <div class="inner sc-h">
+          <TimeTab :showDays='showDays' @hideMask='goHide' @clickTab='clickTab'/>
+          <FilmTab ref='filmTab'/>
+        </div>
       </div>
     </div>
     <div class="bot">
@@ -54,7 +56,7 @@ export default {
      * 获取城市、品牌、特色
      */
     async getCPT () {
-      const {data: {brand, district, hallType, service, subway, timeRanges}} = await getInfos()
+      const {data: {brand, district, hallType, service, subway}} = await getInfos()
       this.$store.dispatch('setDistrict', district)
       this.$store.dispatch('setSubway', subway)
       this.$store.dispatch('setHallType', hallType)
@@ -95,7 +97,7 @@ export default {
      * 对2019-02-01这样的时间格式化
      */
     formatDate (time) {
-      const day = setTime()
+      // const day = setTime()
       const date = new Date(time)
       const week = this.returnCN(date.getDay())
       time = time.split('-')
@@ -131,11 +133,22 @@ export default {
           break
       }
       return cNum
-    },
+    }
   }
 }
 </script>
 <style lang="less" scoped>
+.detail {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.top {
+  position: relative;
+  z-index: 210;
+}
 .mint-header {
   height: .5rem;
   background-color: @theme-red;

@@ -18,9 +18,18 @@
 <script>
 export default {
   name: 'TabBar',
-  data () {
-    return {
-      selected: 'tab1'
+  computed: {
+    selected: {
+      get () {
+        if (this.$route.path === '/home') {
+          return 'tab1'
+        } else if (this.$route.path === '/film') {
+          return 'tab2'
+        }
+      },
+      set (val) {
+        return val
+      }
     }
   }
 }

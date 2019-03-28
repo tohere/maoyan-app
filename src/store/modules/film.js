@@ -93,7 +93,7 @@ const film = {
     // 设置fixed
     [SETFIXED] (state, isFixed) {
       state.isFixed = isFixed
-    },
+    }
   },
   actions: {
     setOneTab ({commit}, item) {

@@ -49,7 +49,7 @@ export default {
      * 获取城市、品牌、特色
      */
     async getCPT () {
-      const {data: {brand, district, hallType, service, subway, timeRanges}} = await getInfos()
+      const {data: {brand, district, hallType, service, subway}} = await getInfos()
       this.$store.dispatch('setDistrict', district)
       this.$store.dispatch('setSubway', subway)
       this.$store.dispatch('setHallType', hallType)

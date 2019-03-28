@@ -115,7 +115,7 @@ export default {
 <style lang="less" scoped>
 .now {
   width: 100%;
-  height: 100%;
+  height: calc(100% - .5rem);
 }
 .video-box {
   width: 100%;
