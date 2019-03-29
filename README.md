@@ -8,21 +8,21 @@
 - tab切换
 - 上拉加载
 - 横向滑动
-![home]('./static/imgs/home.gif')
+![home]('/static/imgs/home.gif')
 
 ### 电影详情页
 - 时间切换
 - 地点、品牌、城市切换
-![home]('./static/imgs/movieDetail.gif')
+![home]('/static/imgs/movieDetail.gif')
 
 ### 影院
 - 城市、品牌、特色切换
-![home]('./static/imgs/film.gif')
+![home]('/static/imgs/film.gif')
 
 ### 影院详情页
 - 滑动切换
 - 点击切换
-![home]('./static/imgs/filmDetail.gif')
+![home]('/static/imgs/filmDetail.gif')
 
 ## 本地运行查看效果
 - 克隆到本地
