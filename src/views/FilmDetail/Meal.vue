@@ -71,6 +71,7 @@ export default {
     height: .92rem;
     position: relative;
     flex-shrink: 0;
+    float: left;
     span {
       position: absolute;
       top: 0;
@@ -87,6 +88,7 @@ export default {
   }
   .right {
     padding-left: .1rem;
+    width: 100%;
     .title {
       span {
         background-color: #ff9900;

@@ -25,9 +25,9 @@
       </swiper-slide>
     </swiper>
     <!-- 活动部分 -->
-    <div class="activity" v-if="newData.vipInfo">
+    <div class="activity ellipsis" v-if="newData.vipInfo">
       <span class="left">{{ newData.vipInfo[0].tag }}</span>
-      <span class="center">{{ newData.vipInfo[0].title }}</span>
+      <span class="center ellipsis">{{ newData.vipInfo[0].title }}</span>
       <span class="right">{{ newData.vipInfo[0].process }}</span>
     </div>
     <div class="con-box">
@@ -128,10 +128,12 @@ export default {
       }
       this.endX = e.changedTouches[0].clientX
       this.disX = this.endX - this.startX
-      console.log(-35 + this.disX - this.tabIndex * 75)
-      let disx = -this.tabIndex * 75 - 35 + this.disX
-      if (disx >= -35) {
-        disx = -35
+      console.log(this.disX)
+      let disx = 0
+      if (this.disX > 0) {
+        disx = -this.tabIndex * 75 + 35 + this.disX
+      } else {
+        disx = -this.tabIndex * 75 - 35 + this.disX
       }
       this.tabIndex = Math.round(disx / 75)
       if (this.tabIndex >= 0) {
@@ -143,7 +145,7 @@ export default {
         this.tabIndex = this.showData.movies.length - 1
       }
       this.slideBoxL = -this.tabIndex * 75 - 35
-      this.$refs.slideBox.style.transform = 'translateX(' + (-35 - this.tabIndex * 75) + 'px)'
+      this.$refs.slideBox.style.transform = 'translateX(' + this.slideBoxL + 'px)'
     }
   }
 }
@@ -247,18 +249,23 @@ export default {
   padding: .15rem .1rem;
   font-size: .12rem;
   background-color: #fff5ea;
+  display: flex;
+  align-items: center;
+  span {
+    flex-shrink: 0;
+  }
   .left {
-    padding: 0 .04rem;
+    padding: .02rem .04rem;
     background-color: #ff941a;
     color: #fff;
     border-radius: .02rem;
-    margin-right: .04rem;
+    margin-right: .06rem;
   }
   .center {
     color: #ff941a;
+    flex: 1;
   }
   .right {
-    float: right;
     position: relative;
     padding-right: .1rem;
     color: #aaa;

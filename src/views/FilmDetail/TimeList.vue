@@ -8,18 +8,16 @@
             <p>{{ item.tm }}</p>
             <p>{{ item.tm | calcTime(dur) }} 散场</p>
           </div>
-          <div class="lang">
-            <p>{{ item.lang }} {{ item.tp }}</p>
-            <p>{{ item.th }}</p>
-          </div>
-          <div class="btn">
-            <mt-button size='small' type='danger'>购票</mt-button>
+          <div class="lang ellipsis">
+            <p class="ellipsis">{{ item.lang }} {{ item.tp }}</p>
+            <p class="ellipsis">{{ item.th }}</p>
           </div>
           <div class="price">
             <div>
               <div class="sell-pr">
-                <div v-html="item.sellPr"></div>
-                <div class="left">
+                <div v-if="item.vipPrice"><span>￥</span>{{ parseInt(item.vipPrice) + 11 }}</div>
+                <div v-if="!item.vipPrice"><span>￥</span>{{ getRandom() }}</div>
+                <div class="left" v-if="item.vipPrice">
                   <span>{{ item.vipPriceName }}</span>
                   <span>￥{{ item.vipPrice }}</span>
                 </div>
@@ -28,6 +26,9 @@
                 {{ item.extraDesc }}
               </div>
             </div>
+          </div>
+          <div class="btn">
+            <mt-button size='small' type='danger'>购票</mt-button>
           </div>
         </div>
       </li>
@@ -68,9 +69,16 @@ export default {
     plist: {
       handler (newVal) {
         this.newPlist = newVal
-        console.log(this.newPlist, '++++++++')
       },
       deep: true
+    }
+  },
+  methods: {
+    /**
+     * 生成随机数字
+     */
+    getRandom () {
+      return parseInt((Math.random() + 1) * 90)
     }
   }
 }
@@ -87,7 +95,7 @@ li {
   clear: both;
 }
 .inner {
-  // display: box;
+  display: flex;
   font-size: .12rem;
   padding: .17rem 0;
   color: #aaa;
@@ -101,7 +109,6 @@ li {
   .time {
     width: .6rem;
     height: .43rem;
-    float: left;
     p:first-child {
       font-size: .16rem;
       font-weight: bold;
@@ -110,43 +117,50 @@ li {
   }
   .lang {
     margin-left: .17rem;
-    float: left;
+    flex: 1;
     p:first-child {
       color: #333;
       font-size: .13rem;
     }
   }
   .price {
-    width: 1.1rem;
-    float: right;
+    width: 1.3rem;
     padding-left: .15rem;
     .sell-pr {
       display: flex;
+      > div:first-child {
+        color:#f03d37;
+        font-size: .16rem;
+        span {
+          font-size: .12rem;
+        }
+      }
       .left {
         display: flex;
         transform: scale(.8);
         float: left;
       }
-      span:nth-of-type(1) {
-        background-color: #ff941a;
-        color: #fff;
-        border-top-left-radius: .02rem;
-        border-bottom-left-radius: .02rem;
-        padding: 0 .02rem;
-        font-size: .12rem;
-      }
-      span:nth-of-type(2) {
-        border: 1px solid #ff941a;
-        padding-right: .02rem;
-        border-bottom-right-radius: .02rem;
-        border-top-right-radius: .02rem;
-        color: #ff941a;
+      .left {
+        span:nth-of-type(1) {
+          background-color: #ff941a;
+          color: #fff;
+          border-top-left-radius: .02rem;
+          border-bottom-left-radius: .02rem;
+          padding: 0 .02rem;
+          font-size: .12rem;
+        }
+        span:nth-of-type(2) {
+          border: 1px solid #ff941a;
+          padding-right: .02rem;
+          border-bottom-right-radius: .02rem;
+          border-top-right-radius: .02rem;
+          color: #ff941a;
+        }
       }
     }
   }
   .btn {
     width: .6rem;
-    float: right;
   }
   .mint-button--small {
     transform: scale(.8)

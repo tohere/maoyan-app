@@ -67,7 +67,8 @@ export default {
       movies: [], // 为处理的电影数据
       swiperOption: {
         slidesPerView: 4,
-        spaceBetween: 30
+        spaceBetween: 30,
+        notNextTick: true
       },
       hasMore: true,
       total: 0 // 总的电影数
