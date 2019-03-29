@@ -2,12 +2,14 @@
 
 > 仿猫眼手机端
 > 线上地址: [仿猫眼电影app](http://maoyan.tomorrow-here.com)
+> 由于不清楚城市id是多少，所以显示的都是北京的影片信息
 
 ## 实现了部分内容如下
 ### 首页
 - tab切换
 - 上拉加载
 - 横向滑动
+- 城市定位
 ![home](static/imgs/home.gif)
 
 ### 电影详情页
